@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="login.html">Login</a>
+    <a href="register.html">Register</a>
+    <a href="dashboard.html">Dashboard</a>
+  </nav>
+  <div class="container">
+    <h2>Welcome to Dashboard</h2>
+    <div>
+      <canvas id="websiteChart"></canvas> 
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    const websiteData = {
+      labels: ['YouTube', 'Instagram', 'Facebook', 'Twitter'],
+      data: [90, 180, 60, 90] 
+    };
+
+    const ctx = document.getElementById('websiteChart').getContext('2d');
+    const myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+        labels: websiteData.labels,
+        datasets: [{
+          label: 'Time spent on websites',
+          data: websiteData.data,
+          backgroundColor: [
+          'rgba(255, 204, 204, 0.5)', 
+            'rgba(153, 204, 255, 0.5)', 
+            'rgba(255, 229, 153, 0.5)',
+            'rgba(179, 230, 230, 0.5)'
+          ],
+          borderColor: [
+          'rgba(255, 204, 204, 1)',
+            'rgba(153, 204, 255, 1)',
+            'rgba(255, 229, 153, 1)',
+            'rgba(179, 230, 230, 1)'
+          ],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        legend: {
+          position: 'bottom' 
+        }
+      }
+    });
+  </script>
+</body>
+</html>
